@@ -1,2 +1,8 @@
 #!/bin/bash
-awk 'NR % 2 == 1'
+count=1
+while read line; do
+  if [ $(expr $count % 2) -eq 1 ]; then
+    echo "$line"
+  fi
+  count=$(expr $count + 1)
+done
